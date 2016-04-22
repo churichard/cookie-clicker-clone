@@ -31,7 +31,7 @@ img:active {
     float: left;
     width: 65%;
     height: 400px;
-    background: #9c9;
+    background: rgba(153, 204, 153, 0.7);
     text-align: center;
 }
 
@@ -39,6 +39,6 @@ img:active {
     float: left;
     width: 35%;
     height: 400px;
-    background: #c9c;
+    background: rgba(204, 153, 204, 0.7);
     text-align: center;
 }
