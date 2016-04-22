@@ -1,3 +1,4 @@
+var UPDATE_SCORE_MILLIS = 500; // Update the score/cookies every x milliseconds
 var score = 0; // score of the game
 var cookies = 0; // number of cookies you have
 var cps = 0; // Cookies per second that are added
@@ -46,16 +47,16 @@ function grandmaClick() {
 
 // Updates the number of cookies once every set time interval
 function updateCookies() {
-    score += cps / 2;
-    cookies += cps / 2;
+    score += cps * (UPDATE_SCORE_MILLIS / 1000);
+    cookies += cps * (UPDATE_SCORE_MILLIS / 1000);
     updateStats();
     window.setTimeout(updateCookies, 500);
 }
 
 // Update cookies and score
 function updateStats() {
-    numOfCookiesElm.innerHTML = Math.round(cookies) + " cookies";
-    scoreElm.innerHTML = "Score: " + Math.round(score);
+    numOfCookiesElm.innerHTML = Math.floor(cookies) + " cookies";
+    scoreElm.innerHTML = "Score: " + Math.floor(score);
     cookiesPerSecElm.innerHTML = cps + " per second";
 }
 
@@ -64,4 +65,4 @@ cursorBtn.addEventListener("click", cursorClick);
 grandmaBtn.addEventListener("click", grandmaClick);
 
 // Increment cookies based on cursors/grandmas every set time interval
-window.setTimeout(updateCookies, 500);
+window.setTimeout(updateCookies, UPDATE_SCORE_MILLIS);
