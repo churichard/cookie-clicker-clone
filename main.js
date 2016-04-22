@@ -2,8 +2,8 @@ var score = 0; // score of the game
 var cookies = 0; // number of cookies you have
 var cursors = 0; // number of cursors you have
 var grandmas = 0; // number of grandmas you have
-var cursorCost = 20 + 20 * cursors/2; // How much it costs to buy a cursor
-var grandmaCost = 100 + 100 * grandmas/2; // How much it costs to buy a grandma
+var cursorCost = 20; // How much it costs to buy a cursor
+var grandmaCost = 100; // How much it costs to buy a grandma
 var cursorBtn = document.getElementById("cursorBtn"); // Cursor button element
 var grandmaBtn = document.getElementById("grandmaBtn"); // Grandma button element
 var numOfCookiesElm = document.getElementById("cookiesCount"); // Number of cookies HTML element
@@ -22,7 +22,7 @@ function cursorClick() {
         cookies -= cursorCost;
         cursors++;
 
-        cursorCost = 20 + 20 * cursors/2;
+        cursorCost *= 2;
         cursorBtn.innerHTML = "Cursors: " + cursors + "<br>Cost: " + cursorCost;
         updateStats();
     }
@@ -34,7 +34,7 @@ function grandmaClick() {
         cookies -= grandmaCost;
         grandmas++;
 
-        grandmaCost = 100 + 100 * grandmas/2;
+        grandmaCost *= 2;
         grandmaBtn.innerHTML = "Grandmas: " + grandmas + "<br>Cost: " + grandmaCost;
         updateStats();
     }
